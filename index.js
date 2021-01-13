@@ -1,26 +1,10 @@
-//const fs = require("fs");
-//const pts = require("./points");
+
 class Pontuation{
     constructor( name, point ){
         this.name = name;
         this.ponctuation = point;
     }
 }
-
-//let newplayer = new Pontuation( "Charletto", 1500 );
-
-/*function getPonctuation( ){
-
-    let a;
-    fs.readFile( "points.json", "utf8", function ( err, data ){
-
-        if ( err ) throw err;
-
-        a = data;
-    });
-
-    return a;
-}*/
 
 var PTS = {};
 if ( localStorage.getItem( "rankPonctuation" ) == null ){
@@ -37,19 +21,6 @@ function SavePonctuation( newPlayer, action="add" ){//Type Ponctuation
     }
 
     localStorage.setItem( "rankPonctuation", JSON.stringify(PTS) );
-
-    /*if ( action.toLowerCase() == "sort" ){
-        PTS.rankplayers = newPlayer;
-    }else if ( action.toLowerCase() == "add" ){
-        PTS.rankplayers.push( newPlayer );
-    }
-
-    fs.writeFile( "points.json", JSON.stringify( pts ), function ( err ){
-        //Check errors
-        if ( err ) throw err;
-    
-    } );*/
-
 }
 
 function RemovePonctuactions(){
@@ -59,13 +30,6 @@ function RemovePonctuactions(){
 
     PTS.rankplayers = [];
     PTS.bestpontuation = 0;
-    /*PTS.rankplayers = [];
-    PTS.bestpontuation = 0;
-
-    fs.writeFile( "points.json", JSON.stringify( pts ), function ( err ){
-        if ( err ) throw err;
-    } );*/
-
     UpdateRank();
 }
 
@@ -786,6 +750,7 @@ function Place( room ){
     }
 }
 
+console.log("My work");
 
 createRanking();
 
